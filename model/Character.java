@@ -1,6 +1,8 @@
 package citywars.model;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Character {
     private static HashMap<String, Character> characters;
@@ -27,6 +29,10 @@ public class Character {
 
     public static Character getCharacter(String name) {
         return characters.get(name);
+    }
+
+    public static List<Character> getAllCharacters() {
+        return characters.values().stream().collect(Collectors.toList());
     }
 
     public String getName() {

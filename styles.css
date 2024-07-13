@@ -1,0 +1,22 @@
+.root {
+    -fx-background-color: #121212;
+}
+
+.label {
+    -fx-text-fill: #FFFFFF;
+}
+
+.text-field, .password-field, .date-picker, .combo-box {
+    -fx-background-color: #2A2A2A;
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: #1DB954;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.message-label {
+    -fx-text-fill: #1DB954;
+}

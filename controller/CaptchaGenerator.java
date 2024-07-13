@@ -24,7 +24,7 @@ public class CaptchaGenerator {
         int a = random.nextInt(10);
         int b = random.nextInt(10);
         String operator = random.nextBoolean() ? "PLUS" : "MINUS";
-        return String.format("%d %s %d = ?", a, operator, b);
+        return String.format("%d %s %d = ", a, operator, b);
     }
 
     public boolean validateCaptcha(String captcha, int userResult) {
