@@ -1,5 +1,8 @@
 package citywars.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import citywars.model.Card;
 import citywars.model.User;
 
@@ -8,6 +11,8 @@ public class GamePlayController {
     private User firstPlayer;
     private User secondPlayer;
     private int[][] board; // 2 rows, 16 columns each
+    private List<Card> firstPlayerHand;
+    private List<Card> secondPlayerHand;
 
     private GamePlayController() {
         board = new int[2][16];
@@ -24,6 +29,7 @@ public class GamePlayController {
         this.firstPlayer = firstPlayer;
         this.secondPlayer = secondPlayer;
         initializeBoard();
+        drawInitialCards();
     }
 
     private void initializeBoard() {
@@ -32,6 +38,24 @@ public class GamePlayController {
                 board[row][col] = 0; // Empty board initialization
             }
         }
+    }
+
+    private void drawInitialCards() {
+        firstPlayerHand = drawCardsForPlayer(firstPlayer);
+        secondPlayerHand = drawCardsForPlayer(secondPlayer);
+    }
+
+    private List<Card> drawCardsForPlayer(User player) {
+        List<Card> hand = new ArrayList<>();
+        for (String card : player.getCards()) {
+            hand.add(Card.getCardDatabase().getCard(card));
+            if (hand.size() == 5) break;
+        }
+        return hand;
+    }
+
+    public List<Card> getHand(int playerNumber) {
+        return playerNumber == 1 ? firstPlayerHand : secondPlayerHand;
     }
 
     public void placeCard(Card card, int colIndex, int playerNumber) {

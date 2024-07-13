@@ -1,6 +1,7 @@
 package citywars.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import citywars.controller.SecurityQuestion;
@@ -15,6 +16,7 @@ public class UserDatabase {
         admin.setSecurityQuestion(SecurityQuestion.getQuestion(1));
         admin.setSecurityAnswer("meow");
         admin.setCoins(20000);
+        admin.getGameHistory().add(new GameRecord(new Date(), "Win", "Mamad", 0, "Reward"));
         users.add(admin);
     }
 

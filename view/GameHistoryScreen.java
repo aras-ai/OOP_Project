@@ -111,7 +111,7 @@ public class GameHistoryScreen {
         if ((currentPage - 1)* 10 > gameHistory.size()) currentPage = (int) Math.ceil(gameHistory.size() / 10);
         if (gameHistory.size() == 0) currentPage = 1;
         GameHistoryController.getInstance().sortGameHistory(gameHistory, currentSort, currentOrder);
-        scoreboard.getChildren().removeAll();
+        scoreboard.getChildren().clear();
         for (int i = (currentPage - 1) * 10; i < currentPage * 10; i++) {
             if (i == gameHistory.size()) break;
             GameRecord record = gameHistory.get(i);
